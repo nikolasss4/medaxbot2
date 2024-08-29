@@ -58,7 +58,10 @@ export const DateExtension = {
         }
       </style>
       <div class="date-form">
-        <label for="meeting">Виберіть дату і час</label>
+        <label for="meeting">1. Нажміть на прямокутник нижче. 
+        2. Виберіть дату в календарі.
+        3. Нажміть на віконце з часом під календарем та виберіть час. 
+        4. Нажміть на кнопку у лівому нижньому куті. </label>
         <div class="meeting">
           <input type="datetime-local" id="meeting" name="meeting" value="" min="${minDateString}" max="${maxDateString}" />
         </div>
