@@ -63,7 +63,7 @@ export const DateExtension = {
     2. Виберіть дату в календарі.<br>
     3. Нажміть на віконце з часом під календарем та виберіть час.<br>
     4. Нажміть на кнопку "готово" у лівому нижньому куті. <br>
-    5.Підтвердіть дату виклику, натиснувши синю кнопку «Підтвердити».
+    5. Підтвердіть дату виклику, натиснувши синю кнопку «Підтвердити».
 </label>
         <div class="meeting">
           <input type="datetime-local" id="meeting" name="meeting" value="" min="${minDateString}" max="${maxDateString}" />
