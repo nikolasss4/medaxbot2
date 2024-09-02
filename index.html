@@ -1,4 +1,3 @@
-<script type="module">
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,6 +22,7 @@
       import { 
         DateExtension
       } from "./extensions2.js"; //url github pages
+
       (function (d, t) {
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
@@ -51,31 +51,30 @@
         s.parentNode.insertBefore(v, s);
       })(document, 'script');
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Function to replace button text
+        function replaceButtonText(buttonSelector, newText) {
+          const button = document.querySelector(buttonSelector);
+          if (button) {
+            button.textContent = newText;
+          }
+        }
+
+        // Replace the text for "Start New Chat" button
+        replaceButtonText('button:contains("Start New Chat")', 'Почати Чат');
+
+        // Replace the text for "End Chat" button
+        replaceButtonText('button:contains("End Chat")', 'Закінчити Чат');
+
+        // Replace the text for "Cancel" button
+        replaceButtonText('button:contains("Cancel")', 'Відмінити');
+      });
+
+      // jQuery like contains function for querySelector
+      document.querySelectorAll = (querySelectorAll => 
+        (selector) => querySelectorAll.call(document, selector.replace(/:contains\(([^)]+)\)/g, (_, text) => `:not(script):not(style):contains("${text}")`))
+      )(document.querySelectorAll);
+    </script>
   </body>
 </html>
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Function to replace button text
-  function replaceButtonText(buttonSelector, newText) {
-    const button = document.querySelector(buttonSelector);
-    if (button) {
-      button.textContent = newText;
-    }
-  }
-
-  // Replace the text for "Start New Chat" button
-  replaceButtonText('button:contains("Start New Chat")', 'Почати Чат');
-
-  // Replace the text for "End Chat" button
-  replaceButtonText('button:contains("End Chat")', 'Закінчити Чат');
-
-  // Replace the text for "Cancel" button
-  replaceButtonText('button:contains("Cancel")', 'Відмінити');
-});
-
-// jQuery like contains function for querySelector
-document.querySelectorAll = (querySelectorAll => 
-  (selector) => querySelectorAll.call(document, selector.replace(/:contains\(([^)]+)\)/g, (_, text) => `:not(script):not(style):contains("${text}")`))
-)(document.querySelectorAll);
-</script>
