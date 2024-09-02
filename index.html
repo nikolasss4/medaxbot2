@@ -19,6 +19,9 @@
     <div id="flat-chat"></div>
     <div id="voiceflow-chat-frame"></div> 
     <script type="module">
+      import { 
+        DateExtension
+      } from "https://nikolasss4.github.io/medaxbot2/extensions2.js";
       import { translateToUkrainian } from "https://nikolasss4.github.io/medaxbot2/ukrainianTranslation.js";
 
       (function (d, t) {
@@ -37,6 +40,11 @@
             },
             autostart: false,
             allowDangerousHTML: true,
+            assistant: {
+              extensions: [
+                DateExtension
+              ],
+            },
           }).then(() => {
             // Call the translation function after the chat has loaded
             translateToUkrainian();
