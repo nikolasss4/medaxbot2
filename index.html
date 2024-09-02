@@ -22,65 +22,33 @@
       import { 
         DateExtension
       } from "./extensions2.js"; //url github pages
-      import { translateToUkrainian } from "./translateToUkrainian.js";
-      
       (function (d, t) {
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
         v.onload = function () {
-          try {
-            window.voiceflow.chat.load({
-              verify: { projectID: '667809eb79bbd43ccb3e6f60' },
-              url: 'https://general-runtime.voiceflow.com',
-              versionID: 'development',
-              user: {
-                name: 'Demo User',
-              },
-              render: {
-                mode: 'overlay',
-              },
-              autostart: true, // Changed to true for testing
-              allowDangerousHTML: true,
-              assistant: {
-                extensions: [
-                  DateExtension
-                ],
-              },
-            });
-            console.log('Voiceflow chat loaded successfully');
-          } catch (error) {
-            console.error('Error loading Voiceflow chat:', error);
-          }
-          
-          // Increased delay for translation attempt
-          setTimeout(() => {
-            try {
-              translateToUkrainian();
-              console.log('Translation attempted');
-            } catch (error) {
-              console.error('Error during translation:', error);
-            }
-          }, 5000);
-        };
-        v.onerror = function() {
-          console.error('Failed to load Voiceflow script');
+           window.voiceflow.chat.load({
+             verify: { projectID: '667809eb79bbd43ccb3e6f60' },
+             url: 'https://general-runtime.voiceflow.com',
+             versionID: 'development',
+             user: {
+               name: 'Demo User',
+             },
+            render: {
+              mode: 'overlay',
+            },
+            autostart: false,
+            allowDangerousHTML: true,
+            assistant: {
+              extensions: [
+                DateExtension
+              ],
+            },
+          });
         };
         v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
         v.type = 'text/javascript';
         s.parentNode.insertBefore(v, s);
       })(document, 'script');
-
-      // Additional safety: try to translate again after the page has fully loaded
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          try {
-            translateToUkrainian();
-            console.log('Translation attempted after page load');
-          } catch (error) {
-            console.error('Error during translation after page load:', error);
-          }
-        }, 5000);
-      });
     </script>
   </body>
 </html>
