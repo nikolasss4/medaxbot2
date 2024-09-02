@@ -48,6 +48,9 @@
           }).then(() => {
             // Call the translation function after the chat has loaded
             translateToUkrainian();
+            console.log('Chat loaded and translation attempted');
+          }).catch(error => {
+            console.error('Error loading chat:', error);
           });
         };
         v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
@@ -57,7 +60,10 @@
 
       // Additional safety: try to translate again after the page has fully loaded
       window.addEventListener('load', () => {
-        setTimeout(translateToUkrainian, 1000);
+        setTimeout(() => {
+          translateToUkrainian();
+          console.log('Translation attempted after page load');
+        }, 1000);
       });
     </script>
   </body>
