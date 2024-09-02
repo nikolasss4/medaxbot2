@@ -21,20 +21,20 @@
     <script type="module">
       import { 
         DateExtension
-      } from "./extensions2.js";
+      } from "./extensions2.js"; //url github pages
       import { translateToUkrainian } from "./translateToUkrainian.js";
-
+      
       (function (d, t) {
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
         v.onload = function () {
-          window.voiceflow.chat.load({
-            verify: { projectID: '667809eb79bbd43ccb3e6f60' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'development',
-            user: {
-              name: 'Demo User',
-            },
+           window.voiceflow.chat.load({
+             verify: { projectID: '667809eb79bbd43ccb3e6f60' },
+             url: 'https://general-runtime.voiceflow.com',
+             versionID: 'development',
+             user: {
+               name: 'Demo User',
+             },
             render: {
               mode: 'overlay',
             },
@@ -45,13 +45,13 @@
                 DateExtension
               ],
             },
-          }).then(() => {
-            // Call the translation function after the chat has loaded
-            translateToUkrainian();
-            console.log('Chat loaded and translation attempted');
-          }).catch(error => {
-            console.error('Error loading chat:', error);
           });
+          
+          // Add a slight delay before attempting translation
+          setTimeout(() => {
+            translateToUkrainian();
+            console.log('Translation attempted');
+          }, 2000);
         };
         v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
         v.type = 'text/javascript';
@@ -63,7 +63,7 @@
         setTimeout(() => {
           translateToUkrainian();
           console.log('Translation attempted after page load');
-        }, 1000);
+        }, 3000);
       });
     </script>
   </body>
