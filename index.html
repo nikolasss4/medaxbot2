@@ -28,30 +28,42 @@
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
         v.onload = function () {
-           window.voiceflow.chat.load({
-             verify: { projectID: '667809eb79bbd43ccb3e6f60' },
-             url: 'https://general-runtime.voiceflow.com',
-             versionID: 'development',
-             user: {
-               name: 'Demo User',
-             },
-            render: {
-              mode: 'overlay',
-            },
-            autostart: false,
-            allowDangerousHTML: true,
-            assistant: {
-              extensions: [
-                DateExtension
-              ],
-            },
-          });
+          try {
+            window.voiceflow.chat.load({
+              verify: { projectID: '667809eb79bbd43ccb3e6f60' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'development',
+              user: {
+                name: 'Demo User',
+              },
+              render: {
+                mode: 'overlay',
+              },
+              autostart: true, // Changed to true for testing
+              allowDangerousHTML: true,
+              assistant: {
+                extensions: [
+                  DateExtension
+                ],
+              },
+            });
+            console.log('Voiceflow chat loaded successfully');
+          } catch (error) {
+            console.error('Error loading Voiceflow chat:', error);
+          }
           
-          // Add a slight delay before attempting translation
+          // Increased delay for translation attempt
           setTimeout(() => {
-            translateToUkrainian();
-            console.log('Translation attempted');
-          }, 2000);
+            try {
+              translateToUkrainian();
+              console.log('Translation attempted');
+            } catch (error) {
+              console.error('Error during translation:', error);
+            }
+          }, 5000);
+        };
+        v.onerror = function() {
+          console.error('Failed to load Voiceflow script');
         };
         v.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
         v.type = 'text/javascript';
@@ -61,9 +73,13 @@
       // Additional safety: try to translate again after the page has fully loaded
       window.addEventListener('load', () => {
         setTimeout(() => {
-          translateToUkrainian();
-          console.log('Translation attempted after page load');
-        }, 3000);
+          try {
+            translateToUkrainian();
+            console.log('Translation attempted after page load');
+          } catch (error) {
+            console.error('Error during translation after page load:', error);
+          }
+        }, 5000);
       });
     </script>
   </body>
