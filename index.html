@@ -27,13 +27,13 @@
         var v = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
         v.onload = function () {
-           window.voiceflow.chat.load({
-             verify: { projectID: '667809eb79bbd43ccb3e6f60' },
-             url: 'https://general-runtime.voiceflow.com',
-             versionID: 'development',
-             user: {
-               name: 'Demo User',
-             },
+          window.voiceflow.chat.load({
+            verify: { projectID: '667809eb79bbd43ccb3e6f60' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'development',
+            user: {
+              name: 'Demo User',
+            },
             render: {
               mode: 'overlay',
             },
@@ -50,28 +50,6 @@
         v.type = 'text/javascript';
         s.parentNode.insertBefore(v, s);
       })(document, 'script');
-    </script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-  // Function to replace button text based on button class and current text content
-  function replaceButtonText(buttonClass, currentText, newText) {
-    const buttons = document.querySelectorAll(buttonClass);
-    buttons.forEach(button => {
-      if (button.textContent.trim() === currentText) {
-        button.textContent = newText;
-      }
-    });
-  }
-
-  // Replace the text for "Start New Chat" button
-  replaceButtonText('.vfrc-button', 'Start New Chat', 'Почати Чат');
-
-  // Replace the text for "End Chat" button
-  replaceButtonText('.vfrc-button', 'End Chat', 'Закінчити Чат');
-
-  // Replace the text for "Cancel" button
-  replaceButtonText('.vfrc-button', 'Cancel', 'Відмінити');
-});
     </script>
   </body>
 </html>
